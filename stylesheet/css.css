@@ -1,7 +1,7 @@
 /* global selectors */
 
 body {
-  background-image: url("stylesheet/wallpaper.png");
+  background-image: url("/stylesheet/wallpaper.png");
   font-family: "PT Sans", sans-serif;
   /* font-family: 'Press Start 2P', cursive; */
   background-size: cover;

@@ -57,7 +57,7 @@ update()
 // dark mode
 
 document.getElementById('dark-mode').addEventListener('click', () => {
-    document.body.style.backgroundImage = "url(/stylesheet/wallpaper-dark.png)";
+    document.body.style.backgroundImage = "url(stylesheet/wallpaper-dark.png)";
     document.body.style.color = "#F1FFFA";
     document.body.style.textShadow = "1px 1px 10px #000000, 10px 10px 15px #000000";
 })
