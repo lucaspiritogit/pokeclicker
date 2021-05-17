@@ -1,0 +1,273 @@
+/* global selectors */
+
+body {
+  background-image: url("/stylesheet/wallpaper.png");
+  font-family: "PT Sans", sans-serif;
+  /* font-family: 'Press Start 2P', cursive; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
+  -ms-content-zooming: none;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+p {
+  font-size: 18px;
+}
+
+
+
+/* end of global selectors */
+
+/* main section */
+
+/* navbar */
+#navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: 0px auto;
+  margin-bottom: 20px;
+  padding: 0;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+#navbar ul {
+  list-style: none;
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+#navbar li {
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* end of navbar */
+
+/* grid of main section */
+
+#main {
+  display: grid;
+  margin: 0 auto;
+  gap: 50px;
+  grid-template-rows: 0.5fr 4 fr 4fr;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  text-align: center;
+}
+
+.mankeyClicker {
+  grid-row-start: 3;
+}
+.primeapeClicker {
+  grid-row-start: 3;
+}
+
+.spindaClicker {
+  grid-row-start: 3;
+}
+
+.pokeball {
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.store {
+  grid-row-start: 2;
+  grid-column-start: 3;
+}
+/* end of grid main section */
+
+.pokeImg {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+
+/*buttons styling */
+button {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 1rem 1rem;
+  margin: 0;
+  text-decoration: none;
+  background: #f18383;
+  color: #ffffff;
+  font-family: sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background 250ms ease-in-out, 
+              transform 150ms ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button:hover,
+button:focus {
+  background: #b1dcf0;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+/* end of main section */
+
+/* animation of pokeball clicking */
+
+.pokeballnormal {
+  width: 250px;
+  transition: all 0.5s ease;
+}
+
+.pokeballnormal:hover {
+  transform: scale(1.1);
+}
+
+.pokeballnormal:active {
+  transform: scale(0.7);
+}
+
+/* end of animation of pokeball clicking */
+
+/* store */
+
+.upgrades {
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+.upgrades a {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  text-decoration: none;
+
+}
+
+/* media queries */
+@media screen and (min-width: 320px) and (max-width: 425px) {
+  #main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #navbar {
+    justify-content: center;
+    align-items: center;
+    
+  }
+
+  .store {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap
+  }
+}
+
+
+.tooltip {
+  position: relative;
+}
+.tooltip:before,
+.tooltip:after {
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+.tooltip:after {
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid rgba(0,0,0,.75); 
+  border-left: 6px solid transparent;
+  content: '';
+  height: 0;
+    top: 20px;
+    left: 20px;
+  width: 0;
+}
+.tooltip:before {
+  background: rgba(0,0,0,.75);
+  border-radius: 2px;
+  color: #fff;
+  content: attr(data-title);
+  font-size: 14px;
+  padding: 6px 10px;
+    top: 26px;
+  white-space: nowrap;
+}
+
+/* the animations of tooltips*/
+/* fade */
+.tooltip.fade:after,
+.tooltip.fade:before {
+  transform: translate3d(0,-10px,0);
+  transition: all .15s ease-in-out;
+}
+.tooltip.fade:hover:after,
+.tooltip.fade:hover:before {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+}
+
+/* expand */
+.tooltip.expand:before {
+  transform: scale3d(.2,.2,1);
+  transition: all .2s ease-in-out;
+}
+.tooltip.expand:after {
+  transform: translate3d(0,6px,0);
+  transition: all .1s ease-in-out;
+}
+.tooltip.expand:hover:before,
+.tooltip.expand:hover:after {
+  opacity: 1;
+  transform: scale3d(1,1,1);
+}
+.tooltip.expand:hover:after {
+  transition: all .2s .1s ease-in-out;
+}
+
+/* swing */
+.tooltip.swing:before,
+.tooltip.swing:after {
+  transform: translate3d(0,30px,0) rotate3d(0,0,1,60deg);
+  transform-origin: 0 0;
+  transition: transform .15s ease-in-out, opacity .2s;
+}
+.tooltip.swing:after {
+  transform: translate3d(0,60px,0);
+  transition: transform .15s ease-in-out, opacity .2s;
+}
+.tooltip.swing:hover:before,
+.tooltip.swing:hover:after {
+  opacity: 1;
+  transform: translate3d(0,0,0) rotate3d(1,1,1,0deg);
+}
+
+
+
