@@ -1,5 +1,5 @@
 //inicial counter
-let pokecount = 0;
+let pokecount = 300;
 // pokeClick refers to the giant pokeball that we click
 let pokeClick = document.getElementById('pokeClick')
 let clickSound = document.getElementById('clickSound')
@@ -8,7 +8,12 @@ pokeClick.addEventListener('click', () => {
     clickSound.currentTime = 0;
     clickSound.play();
     update()
-})
+});
+
+
+
+
+
 
 
 //save & load the game
@@ -22,6 +27,7 @@ localStorage.setItem("costAutoClickP", costAutoClickP);
 localStorage.setItem("autoClickAmountM", autoClickAmountM);
 localStorage.setItem("autoClickAmountP", autoClickAmountP);
 localStorage.setItem("autoClickAmountS", autoClickAmountS);
+localStorage.setItem("black-belt", black-belt);
 };
 
 function load() {
@@ -48,6 +54,8 @@ autoClickAmountP = parseInt(autoClickAmountP);
 
 autoClickAmountS = localStorage.getItem("autoClickAmountS");
 autoClickAmountS = parseInt(autoClickAmountS);
+
+blackBelt = localStorage.getItem("black-belt");
 
 
 update()
@@ -109,6 +117,7 @@ document.getElementById('black-belt').addEventListener('click', () => {
             update()
         })
         document.getElementById('black-belt').remove();
+        
     } else {
         alert('You dont have enough pokeballs to buy that item')
     }
@@ -153,8 +162,7 @@ function timer() {
     pokecount = pokecount + autoClickS;
     update()
 }
-        
-    setInterval(timer, 1000);
+setInterval(timer, 1000);
 
 
 
