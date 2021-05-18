@@ -51,11 +51,20 @@
         <a id="pokeClick" href="#/"
           ><img class="pokeballnormal" src="resources/pokeball.png"
         /></a>
+        <p id="rareCandyAmount">You have 0 Rare Candies</p>
         <audio id="clickSound" src="resources/clickb1.mp3"></audio>
       </div>
       <div class="store">
         <h1>PokeShop</h1>
         <div class="upgrades">
+          <a
+          class="tooltip fade"
+          data-title="Evolve your pokemon!"
+          id="rare-candy"
+          href="#/"
+          ><img src="resources/rare-candy.png" alt="" />Rare Candy
+          <span class="upgradesPrice">(1000 Pokeballs)</span></a
+        >
           <a
             class="tooltip fade"
             data-title="Gain an additional pokeball on click."
@@ -90,6 +99,15 @@
           </button>
           <p id="costAutoClickS">It costs ? Pokeballs to catch him!</p>
           <p id="autoClickAmountS">You Own 0 Auto Clickers</p>
+        </div>
+        <div class="poliwagClicker">
+          <h2>Buy 1 Auto Spinda Clicker</h2>
+          <button id="buyAutoClickPoli">
+            <img id="poliwag" class="pokeImg" src="resources/poliwag.png" />
+          </button>
+          <p id="costAutoClickPoli">It costs ? Pokeballs to catch him!</p>
+          <p id="autoClickAmountPoli">You Own 0 Auto Clickers</p>
+          <button id="evolveButtonPoli">Evolve</button>
         </div>
       </div>
     </div>

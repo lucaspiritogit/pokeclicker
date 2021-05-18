@@ -70,7 +70,7 @@ a {
   display: grid;
   margin: 0 auto;
   gap: 50px;
-  grid-template-rows: 0.5fr 4 fr 4fr;
+  grid-template-rows: auto auto auto;
   grid-template-columns: repeat(3, 1fr);
   place-items: center;
   text-align: center;
@@ -79,6 +79,7 @@ a {
 .pokeball {
   grid-column-start: 2;
   grid-row-start: 2;
+  
 }
 
 
@@ -182,7 +183,7 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 15px;
+  margin: 20px 15px;
   text-decoration: none;
 }
 
@@ -203,6 +204,27 @@ button:active {
     justify-content: center;
     align-items: center;
   }
+
+  .gridBuy {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #navbar {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .store {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 625px) and (max-width: 1366px) {
 
   .gridBuy {
     display: flex;

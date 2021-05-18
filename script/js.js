@@ -1,5 +1,5 @@
 //inicial counter
-let pokecount = 300;
+let pokecount = 21300;
 // pokeClick refers to the giant pokeball that we click
 let pokeClick = document.getElementById('pokeClick')
 let clickSound = document.getElementById('clickSound')
@@ -9,11 +9,6 @@ pokeClick.addEventListener('click', () => {
     clickSound.play();
     update()
 });
-
-
-
-
-
 
 
 //save & load the game
@@ -28,7 +23,9 @@ localStorage.setItem("autoClickAmountM", autoClickAmountM);
 localStorage.setItem("autoClickAmountP", autoClickAmountP);
 localStorage.setItem("autoClickAmountS", autoClickAmountS);
 localStorage.setItem("black-belt", black-belt);
+update()
 };
+
 
 function load() {
 pokecount = localStorage.getItem("pokecount");
@@ -109,25 +106,60 @@ darkModeToggle.addEventListener('click', () => {
 
 
 // pokeshop
+//black belt
 document.getElementById('black-belt').addEventListener('click', () => {
     if (pokecount >= 300) {
-        pokecount = pokecount - 300;
-        pokeClick.addEventListener('click', () => {
-            pokecount++;
-            update()
-        })
-        document.getElementById('black-belt').remove();
-        
+        pokecount = pokecount - 300;    
     } else {
         alert('You dont have enough pokeballs to buy that item')
     }
+    
+    pokeClick.addEventListener('click', () => {
+      pokecount++;
+      update();      
+  })
+  document.getElementById('black-belt').remove() 
+  update();   
+});
+
+// rare candy
+let rareCandy = document.getElementById('rare-candy');
+let rareCandyAmount = document.getElementById('rareCandyAmount')
+rareCandyAmount = 0;
+
+
+rareCandy.addEventListener('click', () => {
+  if (pokecount >= 1000) {
+    pokecount = pokecount - 1000; 
+    rareCandyAmount++;
+    document.getElementById('rareCandyAmount').innerHTML = `You have ${rareCandyAmount}   Rare Candies`;
+    // evolve
+
+  } else {
+    alert('You dont have enough pokeballs to buy that item')
+  }
+
+update();
+});
+
+document.getElementById ('evolveButtonPoli').addEventListener('click', () => {
+  let poliwag = document.getElementById('poliwag');
+  if (rareCandyAmount >= 1 && poliwag.src != "resources/poliwhirl.png") {
+    rareCandyAmount = rareCandyAmount - 1;
+    poliwag.src = "resources/poliwhirl.png"
+  }
 })
+
+
+
+
+
 
 
 
 // function to update values as the user clicks on the buttons
 
-function update () {
+function update() {
     // counter of pokeballs
     document.getElementById('count').value = pokecount;
     document.title = pokecount + " Pokeballs";
@@ -147,7 +179,11 @@ function update () {
 
     // pokeballs per second counter
     perSecond = autoClickM + autoClickP + autoClickS;
-    document.getElementById("perSecond").innerHTML = `Generating ${perSecond} pokeballs per second`
+    document.getElementById("perSecond").innerHTML = `Generating ${perSecond} pokeballs per second`;
+
+   
+
+
 };
 
 
@@ -161,8 +197,9 @@ function timer() {
     pokecount = pokecount + autoClickM;
     pokecount = pokecount + autoClickS;
     update()
+    
 }
-setInterval(timer, 1000);
+setInterval(timer, 1000);//
 
 
 
