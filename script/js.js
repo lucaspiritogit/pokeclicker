@@ -1,5 +1,5 @@
 //inicial counter
-let pokecount = 300;
+let pokecount = 0;
 // pokeClick refers to the giant pokeball that we click
 let pokeClick = document.getElementById('pokeClick')
 let clickSound = document.getElementById('clickSound')
@@ -55,15 +55,52 @@ update()
 
 
 // dark mode
+let darkMode = localStorage.getItem('darkMode'); 
 
-document.getElementById('dark-mode').addEventListener('click', () => {
-    document.body.style.backgroundImage = "url(stylesheet/wallpaper-dark.png)";
-    document.body.style.color = "#F1FFFA";
-    document.body.style.textShadow = "1px 1px 10px #000000, 10px 10px 15px #000000";
-})
+const darkModeToggle = document.querySelector('#dark-mode');
+
+const enableDarkMode = () => {
+  // 1. Add the class to the body
+  document.body.classList.add('darkMode');
+  // 2. Update darkMode in localStorage
+  localStorage.setItem('darkMode', 'enabled');
+}
+
+const disableDarkMode = () => {
+  // 1. Remove the class from the body
+  document.body.classList.remove('darkMode');
+  // 2. Update darkMode in localStorage 
+  localStorage.setItem('darkMode', null);
+}
+ 
+// If the user already visited and enabled darkMode
+// start things off with it on
+if (darkMode === 'enabled') {
+document.getElementById('dark-mode').innerHTML = 'Light Mode'
+  enableDarkMode();
+}
+
+// When someone clicks the button
+darkModeToggle.addEventListener('click', () => {
+
+  // get their darkMode setting
+  darkMode = localStorage.getItem('darkMode'); 
+  
+  // if it not current enabled, enable it
+  if (darkMode !== 'enabled') {
+    document.getElementById('dark-mode').innerHTML = 'Light Mode'
+    enableDarkMode();
+  // if it has been enabled, turn it off  
+  
+  } else { 
+    document.getElementById('dark-mode').innerHTML = 'Dark Mode' 
+    disableDarkMode(); 
+  }
+});
 
 
-// store
+
+// pokeshop
 document.getElementById('black-belt').addEventListener('click', () => {
     if (pokecount >= 300) {
         pokecount = pokecount - 300;

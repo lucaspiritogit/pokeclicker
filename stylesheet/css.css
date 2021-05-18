@@ -2,8 +2,8 @@
 
 body {
   background-image: url("wallpaper.png");
-  font-family: "PT Sans", sans-serif;
-  /* font-family: 'Press Start 2P', cursive; */
+  font-family: "Varela Round", sans-serif;
+  font-size: 18px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -16,8 +16,14 @@ body {
   margin: 0 auto;
 }
 
-p {
-  font-size: 18px;
+a {
+  color: inherit;
+}
+
+.darkMode {
+  background-image: url("wallpaper-dark.png");
+  color: #f1fffa;
+  text-shadow: 1px 1px 10px #000000, 10px 10px 15px #000000;
 }
 
 /* end of global selectors */
@@ -37,6 +43,7 @@ p {
   grid-row-end: 1;
   grid-column-start: 1;
   grid-column-end: 4;
+  font-family: "Press Start 2P", cursive;
 }
 
 #navbar ul {
@@ -69,17 +76,6 @@ p {
   text-align: center;
 }
 
-.mankeyClicker {
-  grid-row-start: 3;
-}
-.primeapeClicker {
-  grid-row-start: 3;
-}
-
-.spindaClicker {
-  grid-row-start: 3;
-}
-
 .pokeball {
   grid-column-start: 2;
   grid-row-start: 2;
@@ -88,6 +84,18 @@ p {
 .store {
   grid-row-start: 2;
   grid-column-start: 3;
+}
+
+.gridBuy {
+  display: grid;
+  place-items: center;
+  margin: 0 auto;
+  grid-row-start: 3;
+  grid-column-start: 2;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 8em;
+  row-gap: 1em;
 }
 /* end of grid main section */
 
@@ -131,6 +139,14 @@ button:active {
 
 /* end of main section */
 
+.black-glasses {
+  display: none;
+}
+
+#dark-mode:hover + .black-glasses {
+  display: block;
+}
+
 /* animation of pokeball clicking */
 
 .pokeballnormal {
@@ -148,23 +164,42 @@ button:active {
 
 /* end of animation of pokeball clicking */
 
-/* store */
+/* pokeshop */
 
 .upgrades {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
+}
+.store h1 {
+  font-family: "Press Start 2P", cursive;
+  text-decoration: underline;
+  text-underline-offset: 10px;
 }
 
 .upgrades a {
   display: flex;
+  justify-content: center;
   align-items: center;
   margin: 0 15px;
   text-decoration: none;
 }
 
+.upgrades a:hover {
+  transform: scale(1.1);
+  transition: all 0.4s ease-in-out;
+}
+
 /* media queries */
 @media screen and (min-width: 320px) and (max-width: 425px) {
   #main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .gridBuy {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -182,6 +217,8 @@ button:active {
     flex-wrap: wrap;
   }
 }
+
+/* tooltip for shop */
 
 .tooltip {
   position: relative;
