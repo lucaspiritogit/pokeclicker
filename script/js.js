@@ -122,7 +122,7 @@ function update () {
     // counter of pokeballs
     document.getElementById('count').value = pokecount;
     document.title = pokecount + " Pokeballs";
-    document.getElementById('count').innerHTML = `You have ${pokecount} pokeballs`
+    document.getElementById('count').innerHTML = `You have ${pokecount} Pokeballs`
 
     // mankey
     document.getElementById('costAutoClickM').innerHTML = `It costs ${((autoClickM + 1) * 12)} Pokeballs to catch him!`;
