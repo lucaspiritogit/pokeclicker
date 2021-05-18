@@ -79,9 +79,7 @@ a {
 .pokeball {
   grid-column-start: 2;
   grid-row-start: 2;
-  
 }
-
 
 .store {
   grid-row-start: 2;
@@ -225,7 +223,6 @@ button:active {
 }
 
 @media screen and (min-width: 625px) and (max-width: 1366px) {
-
   .gridBuy {
     display: flex;
     flex-wrap: wrap;
