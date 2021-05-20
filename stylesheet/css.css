@@ -3,7 +3,7 @@
 body {
   background-image: url("wallpaper.png");
   font-family: "Varela Round", sans-serif;
-  font-size: 1rem;  
+  font-size: 1rem;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -138,9 +138,9 @@ button:active {
   transform: scale(0.99);
 }
 
-
-.hidden { display:none; }
-
+.hidden {
+  display: none;
+}
 
 /* end of main section */
 
@@ -173,6 +173,7 @@ button:active {
 
 .upgrades {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
 }

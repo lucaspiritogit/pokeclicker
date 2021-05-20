@@ -52,7 +52,7 @@
           ><img class="pokeballnormal" src="resources/pokeball.png"
         /></a>
         <audio id="clickSound" src="resources/clickb1.mp3"></audio>
-        <p id="rareCandyAmount">You have 0 Rare Candies</p>
+        <p id="rareCandyAmount">You have 0 Rare Candies </p>
       </div>
       <div class="store">
         <h1>PokeShop</h1>
@@ -68,10 +68,34 @@
           <a
             class="tooltip fade"
             data-title="Gain an additional pokeball on click."
-            id="black-belt"
+            id="blackBelt"
             href="#/"
             ><img src="resources/black-belt.png" alt="" />Black belt
             <span class="upgradesPrice">(300 Pokeballs)</span></a
+          >
+          <a
+            class="tooltip fade"
+            data-title="An evolution stone."
+            id="waterStone"
+            href="#/"
+            ><img src="resources/water-stone.png" alt="" />Water Stone 
+            <span class="upgradesPrice">(500 Pokeballs)</span></a
+          >
+          <a
+            class="tooltip fade"
+            data-title="An item to be held by a POKéMON."
+            id="kingsRock"
+            href="#/"
+            ><img src="resources/kings-rock.png" alt="" />Kings Rock 
+            <span class="upgradesPrice">(10000 Pokeballs)</span></a
+          >
+          <a
+            class="tooltip fade"
+            data-title="A delicious berry that boosts production."
+            id="oranBerry"
+            href="#/"
+            ><img src="resources/oran-berry.png" alt="" />Oran Berry 
+            <span class="upgradesPrice">(5000 Pokeballs)</span></a
           >
         </div>
       </div>
@@ -84,6 +108,7 @@
           <p id="costAutoClickM">It costs 12 Pokeballs to catch him!</p>
           <p id="autoClickAmountM">You Own 0 Auto Clickers</p>
         </div>
+
         <div class="primeapeClicker">
           <h2>Buy 1 Auto Primeape Clicker</h2>
           <button id="buyAutoClickP">
@@ -92,6 +117,7 @@
           <p id="costAutoClickP">It costs 24 Pokeballs to catch him!</p>
           <p id="autoClickAmountP">You Own 0 Auto Clickers</p>
         </div>
+
         <div class="spindaClicker">
           <h2>Buy 1 Auto Spinda Clicker</h2>
           <button id="buyAutoClickS">
@@ -112,7 +138,7 @@
         </div>
 
         <div id="poliwhirlClicker" class="poliwhirlClicker hidden">
-          <h2>Buy 1 Auto Poliwag Clicker</h2>
+          <h2>Buy 1 Auto Poliwhirl Clicker</h2>
           <button id="buyAutoClickPoliwhirl">
             <img id="poliwhirl" class="pokeImg" src="resources/poliwhirl.png" />
           </button>
@@ -121,7 +147,16 @@
           <button id="evolveButtonPoliwhirl">Evolve</button>
         </div>
 
-      </div>
+         
+        <div id="poliwrathClicker" class="poliwrathClicker hidden">
+          <h2>Buy 1 Auto Poliwrath Clicker</h2>
+          <button id="buyAutoClickPoliwrath">
+            <img id="poliwrath" class="pokeImg" src="resources/poliwrath.png" />
+          </button>
+          <p id="costAutoClickPoliwrath">It costs 10 Pokeballs to catch him!</p>
+          <p id="autoClickAmountPoliwrath">You Own 0 Auto Clickers</p>
+        </div>
+
     </div>
   </body>
 </html>
