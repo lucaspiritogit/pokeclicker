@@ -1,6 +1,5 @@
 //inicial counter
-let pokecount = 10000;
-// pokeClick refers to the giant pokeball that we click
+let pokecount = 0;
 let pokeClick = document.getElementById("pokeClick");
 let clickSound = document.getElementById("clickSound");
 pokeClick.addEventListener("click", () => {
@@ -11,6 +10,68 @@ pokeClick.addEventListener("click", () => {
 });
 
 
+
+function update() {
+  // counter of pokeballs
+  document.getElementById("count").value = pokecount;
+  document.title = pokecount + " Pokeballs";
+  document.getElementById(
+    "count"
+  ).innerHTML = `You have ${pokecount} Pokeballs`;
+
+  // mankey
+  document.getElementById("costAutoClickM").innerHTML = `It costs ${
+    (autoClickM + 1) * 12
+  } Pokeballs to catch him!`;
+  document.getElementById("autoClickAmountM").innerHTML =
+    "You Own " + autoClickAmountM + " Auto Clickers";
+
+  // primeape
+  document.getElementById("costAutoClickP").innerHTML = `It costs ${
+    (autoClickP + 1) * 24
+  } Pokeballs to catch him!`;
+  document.getElementById("autoClickAmountP").innerHTML =
+    "You Own " + autoClickAmountP + " Auto Clickers";
+
+  // spinda
+  document.getElementById("autoClickAmountS").innerHTML =
+    "You Own " + autoClickAmountS + " Auto Clickers";
+
+ 
+  // mankey
+  document.getElementById("costAutoClickPoli").innerHTML = `It costs ${
+    (autoClickPoli + 1) * 10
+  } Pokeballs to catch him!`;
+
+  // poliwag
+    document.getElementById("autoClickAmountPoli").innerHTML =
+      "You Own " + autoClickAmountPoli + " Auto Clickers";
+
+
+        
+      document.getElementById("costAutoClickPoliwhirl").innerHTML = `It costs ${
+        (autoClickPoliwhirl + 1) * 60
+      } Pokeballs to catch him!`;
+      document.getElementById("autoClickAmountPoliwhirl").innerHTML =
+        "You Own " + autoClickAmountPoliwhirl + " Auto Clickers";
+      
+
+        
+
+  // pokeballs per second counter
+
+perSecond = autoClickM + autoClickP + autoClickS + autoClickPoli + autoClickPoliwhirl;
+  document.getElementById(
+    "perSecond"
+  ).innerHTML = `Generating ${perSecond} pokeballs per second`;
+
+// rare candy
+document.getElementById(
+  "rareCandyAmount"
+).innerHTML = `You have ${rareCandyAmount} Rare Candies`;
+
+
+};
 
 //save & load the game
 
@@ -28,9 +89,11 @@ function save() {
   localStorage.setItem("autoClickAmountS", autoClickAmountS);
   localStorage.setItem("autoClickAmountPoli", autoClickAmountPoli)
   localStorage.setItem("autoClickAmountPoliwhirl", autoClickAmountPoliwhirl)
-  localStorage.setItem("poliwhirl", poliwhirl)
+  localStorage.setItem("poliwhirlClicker", poliwhirlClicker)
   localStorage.setItem("blackBelt", blackBelt);
-  localStorage.setItem("polistate",polistate)
+
+
+
 
   update();
 }
@@ -40,6 +103,7 @@ function load() {
   pokecount = parseInt(pokecount);
 
   perSecond = localStorage.getItem('perSecond')
+  perSecond = parseInt(perSecond);
 
 
   autoClickM = localStorage.getItem("autoClickM");
@@ -74,8 +138,8 @@ function load() {
   autoClickAmountPoli = localStorage.getItem("autoClickAmountPoli")
   autoClickAmountPoli = parseInt(autoClickAmountPoli)
   autoClickAmountPoliwhirl = localStorage.getItem("autoClickAmountPoliwhirl")
-  autoClickAmountPoliwhirl = parseInt(autoClickAmountPoliwhirl)
-  poliwhirlClicker = localStorage.getItem("poliwhirlClicker")
+  autoClickAmountPoliwhirl = parseInt(autoClickAmountPoliwhirl);
+  poliwhirlClicker = localStorage.getItem("poliwhirlClicker");
 
   
 
@@ -148,36 +212,7 @@ document.getElementById("blackBelt").addEventListener("click", () => {
 });
 
 
-// water stone
-waterStoneAmount = 0;
-document.getElementById('waterStone').addEventListener("click", () => {
-  if (pokecount >= 500) {
-      pokecount = pokecount - 300;
-      document.getElementById("waterStone").remove();
-      update();
-  }
-});
 
-// kings rock
-document.getElementById('kingsRock').addEventListener("click", () => {
-  if (pokecount >= 10000) {
-      pokecount = pokecount - 10000;
-      document.getElementById("kingsRock").remove();
-      update();
-  }
-});
-
-// oran berry
-oranBerry = document.getElementById('oranBerry');
-oranBerry.addEventListener('click', () => {
-  if (pokecount >= 5000) {
-      pokecount = pokecount - 5000;
-      perSecond = perSecond * 10
-      
-      oranBerry.remove();
-      update();
-  }
-});
 
 
 // rare candy
@@ -188,6 +223,7 @@ rareCandyAmount = 0;
 rareCandy.addEventListener("click", () => {
   if (pokecount >= 1000) {
     pokecount = pokecount - 1000;
+    
     rareCandyAmount++;
     document.getElementById(
       "rareCandyAmount"
@@ -203,74 +239,13 @@ rareCandy.addEventListener("click", () => {
 
 
 
-// function to update values as the user clicks on the buttons
-
-function update() {
-  // counter of pokeballs
-  document.getElementById("count").value = pokecount;
-  document.title = pokecount + " Pokeballs";
-  document.getElementById(
-    "count"
-  ).innerHTML = `You have ${pokecount} Pokeballs`;
-
-  // mankey
-  document.getElementById("costAutoClickM").innerHTML = `It costs ${
-    (autoClickM + 1) * 12
-  } Pokeballs to catch him!`;
-  document.getElementById("autoClickAmountM").innerHTML =
-    "You Own " + autoClickAmountM + " Auto Clickers";
-
-  // primeape
-  document.getElementById("costAutoClickP").innerHTML = `It costs ${
-    (autoClickP + 1) * 24
-  } Pokeballs to catch him!`;
-  document.getElementById("autoClickAmountP").innerHTML =
-    "You Own " + autoClickAmountP + " Auto Clickers";
-
-  // spinda
-  document.getElementById("autoClickAmountS").innerHTML =
-    "You Own " + autoClickAmountS + " Auto Clickers";
-
- 
-  // mankey
-  document.getElementById("costAutoClickPoli").innerHTML = `It costs ${
-    (autoClickPoli + 1) * 10
-  } Pokeballs to catch him!`;
-
-  // poliwag
-    document.getElementById("autoClickAmountPoli").innerHTML =
-      "You Own " + autoClickAmountPoli + " Auto Clickers";
 
 
-        
-      document.getElementById("costAutoClickPoliwhirl").innerHTML = `It costs ${
-        (autoClickPoliwhirl + 1) * 60
-      } Pokeballs to catch him!`;
-      document.getElementById("autoClickAmountPoliwhirl").innerHTML =
-        "You Own " + autoClickAmountPoliwhirl + " Auto Clickers";
-      
-
-        
-
-  // pokeballs per second counter
-
-  let perSecond = autoClickM + autoClickP + autoClickS + autoClickPoli + autoClickPoliwhirl;
-  document.getElementById(
-    "perSecond"
-  ).innerHTML = `Generating ${(perSecond)} pokeballs per second`;
-
-// rare candy
-document.getElementById(
-  "rareCandyAmount"
-).innerHTML = `You have ${rareCandyAmount} Rare Candies`;
-
-
-};
 
 //timer of pokeballs count and autoclickers
 function timer() {
-  pokecount = pokecount + autoClickP;
   pokecount = pokecount + autoClickM;
+  pokecount = pokecount + autoClickP;
   pokecount = pokecount + autoClickS;
   pokecount = pokecount + autoClickPoli;
   pokecount = pokecount + autoClickPoliwhirl;
@@ -381,22 +356,20 @@ let autoClickPoliwhirl = 0;
 let autoClickAmountPoliwhirl = 0;
 let poliwhirl = document.getElementById("buyAutoClickPoliwhirl");
 
+
 document.getElementById('evolveButtonPoli').addEventListener('click', () => {
 
   if (rareCandyAmount >= 1) {
     rareCandyAmount--;
-    document.getElementById("poliwagClicker").style.display="none"; 
-    document.getElementById("poliwhirlClicker").style.display="block";
-    
-    
+    document.getElementById("poliwagClicker").classList.add('hidden')
+    document.getElementById("poliwhirlClicker").classList.remove('hidden')
 
- 
-    poliwhirl.addEventListener("click", () => {
+    
+       poliwhirl.addEventListener("click", () => {
       if (pokecount >= (autoClickPoliwhirl + 1) * 60) {
         pokecount = pokecount - (autoClickPoliwhirl + 1) * 60;
-        autoClickPoliwhirl = autoClickPoliwhirl + 5; //calculates how much points per second gives, ex: this one gives +2 each second
-        autoClickAmountPoliwhirl += 1;
-       
+        autoClickPoliwhirl = autoClickPoliwhirl + 5; //calculates how much points per second gives
+        autoClickAmountPoliwhirl += 1;       
         
       document.getElementById("costAutoClickPoliwhirl").innerHTML = `It costs ${
         (autoClickPoliwhirl + 1) * 60
@@ -415,48 +388,56 @@ document.getElementById('evolveButtonPoli').addEventListener('click', () => {
     alert('You dont have enough rare candies')
   };
 
+  
+
 });
 
 
 // poliwrath
 
-let autoClickPoliwrath = 0;
-let autoClickAmountPoliwrath = 0;
-let poliwrath = document.getElementById("buyAutoClickPoliwrath");
+// let autoClickPoliwrath = 0;
+// let autoClickAmountPoliwrath = 0;
+// let poliwrath = document.getElementById("buyAutoClickPoliwrath");
 
-document.getElementById('evolveButtonPoliwhirl').addEventListener('click', () => {
+// document.getElementById('evolveButtonPoliwhirl').addEventListener('click', () => {
 
-  if (rareCandyAmount >= 1) {
-    rareCandyAmount--;
-    document.getElementById("poliwhirlClicker").style.display="none"; 
-    document.getElementById("poliwrathClicker").style.display="block";
+//   if (rareCandyAmount >= 1) {
+//     rareCandyAmount--;
+//     document.getElementById("poliwhirlClicker").style.display="none"; 
+//     document.getElementById("poliwrathClicker").style.display="block";
     
 
  
-    poliwrath.addEventListener("click", () => {
-      if (pokecount >= (autoClickPoliwrath + 1) * 60) {
-        pokecount = pokecount - (autoClickPoliwrath + 1) * 60;
-        autoClickPoliwrath = autoClickPoliwrath + 5; //calculates how much points per second gives, ex: this one gives +2 each second
-        autoClickAmountPoliwrath += 1;
+//     poliwrath.addEventListener("click", () => {
+//       if (pokecount >= (autoClickPoliwrath + 1) * 60) {
+//         pokecount = pokecount - (autoClickPoliwrath + 1) * 60;
+//         autoClickPoliwrath = autoClickPoliwrath + 5; //calculates how much points per second gives, ex: this one gives +2 each second
+//         autoClickAmountPoliwrath += 1;
        
         
-      document.getElementById("costAutoClickPoliwrath").innerHTML = `It costs ${
-        (autoClickPoliwrath + 1) * 60
-      } Pokeballs to catch him!`;
-      document.getElementById("autoClickAmountPoliwrath").innerHTML =
-        "You Own " + autoClickAmountPoliwrath + " Auto Clickers";
+//       document.getElementById("costAutoClickPoliwrath").innerHTML = `It costs ${
+//         (autoClickPoliwrath + 1) * 60
+//       } Pokeballs to catch him!`;
+//       document.getElementById("autoClickAmountPoliwrath").innerHTML =
+//         "You Own " + autoClickAmountPoliwrath + " Auto Clickers";
         
-          update()
+//           update()
        
-      } else {
-        alert("You dont have enough Pokeballs to catch that pokemon");
-      };
-    });
+//       } else {
+//         alert("You dont have enough Pokeballs to catch that pokemon");
+//       };
+//     });
 
-  } else {
-    alert('You dont have enough rare candies')
-  };
+//   } else {
+//     alert('You dont have enough rare candies')
+//   };
 
-});
+// });
+
+
+
+
+
+
 
 
