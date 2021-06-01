@@ -1,5 +1,6 @@
 please nintendo© dont sue me
 # PokeClicker is a little javascript portfolio project inspired by Cookie Clicker.
+## [https://lucaspiritogit.github.io/pokeclicker/]
 
 I'll be updating it until i ran out of ideas or i get hired as a developer, whichever happens first.👍
 
